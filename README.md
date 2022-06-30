@@ -7,4 +7,3 @@
 2. Usuario: root
 3. Contraseña: 12345
 
-# proyectoNavesSofka
