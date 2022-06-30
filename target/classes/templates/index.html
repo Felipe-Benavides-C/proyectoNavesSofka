@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Sofka</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Clasificación de Naves</a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/agregar">Agregar Nave</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<br>
+
+<div class="container text-center">
+    <form class="row g-3" th:action="@{/}">
+        <div class="col-auto">
+
+            <input type="text" name="palabraClave" class="form-control" id="palabraClave" th:value="${palabraClave}"
+                   placeholder="Buscar">
+
+        </div>
+        <div class="col-auto">
+        <input th:type="submit" class="btn btn-info mb-2" th:value="Buscar">
+        </div>
+
+    </form>
+    <br>
+    <table class="table table-striped">
+        <thead>
+        <tr class="table-dark">
+            <th scope="col">Nombre</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">País</th>
+            <th scope="col">Acción</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="naves : ${naves}">
+            <td th:text="${naves.nombre_nave}"></td>
+            <td th:text="${naves.categoria}"></td>
+            <td th:text="${naves.pais}"></td>
+            <td>
+                <a class="btn btn-primary" th:href="@{/editar/} + ${naves.id_nave}" th:text="Editar"<a/>
+                &nbsp;
+                <a class="btn btn-danger" th:href="@{/eliminar/} + ${naves.id_nave}" th:text="Eliminar"/>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

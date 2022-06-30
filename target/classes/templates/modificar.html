@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>formulario de registro</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Nueva Nave</a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/agregar">Agregar Nave</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class="text-center">Registro de la nave</h1>
+            <div class="card-body">
+                <form th:action="@{/guardar}" method="post" th:object="${nave}">
+                    <div class="form-group">
+                        <input type="hidden" name="id_nave" th:field="*{id_nave}" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre_nave">Nombre de la Nave</label>
+                        <input type="text" name="nombre" th:field="*{nombre_nave}" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="categoria">Categoria de la Nave</label>
+                        <input type="text" name="categoria" th:field="*{categoria}" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="pais">Pais de lanzamiento</label>
+                        <input type="text" name="pais" th:field="*{pais}" class="form-control"/>
+                    </div>
+                    <br>
+                    <div class="box-footer">
+                        <input type="submit" name="guardar" value="Guardar"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

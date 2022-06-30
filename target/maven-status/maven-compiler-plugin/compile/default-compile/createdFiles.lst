@@ -1,0 +1,6 @@
+naves\com\sofka\RetoNavesApplication.class
+naves\com\sofka\web\InicioController.class
+naves\com\sofka\servicio\NaveService.class
+naves\com\sofka\domain\Nave.class
+naves\com\sofka\servicio\NaveServiceImpl.class
+naves\com\sofka\dao\INaveDao.class
